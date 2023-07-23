@@ -36,6 +36,32 @@ const Matches = () => {
     fetchData();
   }, []);
 
+  const handleRoundOne = () => {
+    setRound(1);
+    setPlayers([
+      {
+        challenged:
+          matches[0].challenged.firstname +
+          " " +
+          matches[0].challenged.lastname,
+        challenger:
+          matches[0].challenger.firstname +
+          " " +
+          matches[0].challenger.lastname,
+      },
+      {
+        challenged:
+          matches[1].challenged.firstname +
+          " " +
+          matches[1].challenged.lastname,
+        challenger:
+          matches[1].challenger.firstname +
+          " " +
+          matches[1].challenger.lastname,
+      },
+    ]);
+  };
+
   const handleRoundTwo = () => {
     setRound(2);
     setPlayers([
@@ -86,16 +112,28 @@ const Matches = () => {
           <button className="px-[7px]">
             <Chevronleft />
           </button>
-          <button className="px-[7px] bg-primary rounded-[3px]">1</button>
+          <button
+            onClick={handleRoundOne}
+            className={
+              round === 1 ? "px-[7px] bg-primary rounded-[3px]" : "px-[7px]"
+            }
+          >
+            1
+          </button>
           <button
             onClick={handleRoundTwo}
-            className="px-[7px] rounded-[3px] hover:bg-primary"
+            className={
+              round === 2 ? "px-[7px] bg-primary rounded-[3px]" : "px-[7px]"
+            }
+            // className="px-[7px] rounded-[3px] hover:bg-primary"
           >
             2
           </button>
           <button
             onClick={handleRoundThree}
-            className="px-[7px] rounded-[3px] hover:bg-primary"
+            className={
+              round === 3 ? "px-[7px] bg-primary rounded-[3px]" : "px-[7px]"
+            }
           >
             3
           </button>
@@ -160,12 +198,14 @@ const Matches = () => {
         </button>
       ) : null}
 
-      <button
-        onClick={handleRoundThree}
-        className=" flex items-center justify-center mx-auto mt-[100px] bg-primary hover:bg-lime-400 shadow-3xl rounded-[16px] w-[40%] min-h-[52px]"
-      >
-        Proceed to Round 3
-      </button>
+      {round === 2 ? (
+        <button
+          onClick={handleRoundThree}
+          className=" flex items-center justify-center mx-auto mt-[100px] bg-primary hover:bg-lime-400 shadow-3xl rounded-[16px] w-[40%] min-h-[52px]"
+        >
+          Proceed to Round 3
+        </button>
+      ) : null}
     </div>
   );
 };
