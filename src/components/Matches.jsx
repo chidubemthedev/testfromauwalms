@@ -12,9 +12,9 @@ const Matches = () => {
       challenger: "challenger",
       winner: "winner",
       sets: [
-        { challenged: 4, challenger: 4 },
-        { challenged: 2, challenger: 4 },
-        { challenged: 5, challenger: 4 },
+        { challenged: 0, challenger: 0 },
+        { challenged: 0, challenger: 0 },
+        { challenged: 0, challenger: 0 },
       ],
     },
   ]);
