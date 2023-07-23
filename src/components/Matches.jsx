@@ -11,6 +11,11 @@ const Matches = () => {
       challenged: "challenged",
       challenger: "challenger",
       winner: "winner",
+      sets: [
+        { challenged: 4, challenger: 4 },
+        { challenged: 2, challenger: 4 },
+        { challenged: 5, challenger: 4 },
+      ],
     },
   ]);
 
@@ -26,6 +31,20 @@ const Matches = () => {
           challenger:
             data[0].challenger.firstname + " " + data[0].challenger.lastname,
           winner: data[0].winner.firstname,
+          sets: [
+            {
+              challenged: data[0].setA.challenged,
+              challenger: data[0].setA.challenger,
+            },
+            {
+              challenged: data[0].setB.challenged,
+              challenger: data[0].setB.challenger,
+            },
+            {
+              challenged: data[0].setC.challenged,
+              challenger: data[0].setC.challenger,
+            },
+          ],
         },
         {
           challenged:
@@ -33,6 +52,20 @@ const Matches = () => {
           challenger:
             data[1].challenger.firstname + " " + data[1].challenger.lastname,
           winner: data[1].winner.firstname,
+          sets: [
+            {
+              challenged: data[1].setA.challenged,
+              challenger: data[1].setA.challenger,
+            },
+            {
+              challenged: data[1].setB.challenged,
+              challenger: data[1].setB.challenger,
+            },
+            {
+              challenged: data[1].setC.challenged,
+              challenger: data[1].setC.challenger,
+            },
+          ],
         },
       ]);
     };
@@ -52,6 +85,20 @@ const Matches = () => {
           " " +
           matches[0].challenger.lastname,
         winner: matches[0].winner.firstname,
+        sets: [
+          {
+            challenged: matches[0].setA.challenged,
+            challenger: matches[0].setA.challenger,
+          },
+          {
+            challenged: matches[0].setB.challenged,
+            challenger: matches[0].setB.challenger,
+          },
+          {
+            challenged: matches[0].setC.challenged,
+            challenger: matches[0].setC.challenger,
+          },
+        ],
       },
       {
         challenged:
@@ -63,6 +110,20 @@ const Matches = () => {
           " " +
           matches[1].challenger.lastname,
         winner: matches[1].winner.firstname,
+        sets: [
+          {
+            challenged: matches[1].setA.challenged,
+            challenger: matches[1].setA.challenger,
+          },
+          {
+            challenged: matches[1].setB.challenged,
+            challenger: matches[1].setB.challenger,
+          },
+          {
+            challenged: matches[1].setC.challenged,
+            challenger: matches[1].setC.challenger,
+          },
+        ],
       },
     ]);
   };
@@ -80,6 +141,20 @@ const Matches = () => {
           " " +
           matches[3].challenger.lastname,
         winner: matches[3].winner.firstname,
+        sets: [
+          {
+            challenged: matches[3].setA.challenged,
+            challenger: matches[3].setA.challenger,
+          },
+          {
+            challenged: matches[3].setB.challenged,
+            challenger: matches[3].setB.challenger,
+          },
+          {
+            challenged: matches[3].setC.challenged,
+            challenger: matches[3].setC.challenger,
+          },
+        ],
       },
       {
         challenged:
@@ -91,6 +166,20 @@ const Matches = () => {
           " " +
           matches[4].challenger.lastname,
         winner: matches[4].winner.firstname,
+        sets: [
+          {
+            challenged: matches[4].setA.challenged,
+            challenger: matches[4].setA.challenger,
+          },
+          {
+            challenged: matches[4].setB.challenged,
+            challenger: matches[4].setB.challenger,
+          },
+          {
+            challenged: matches[4].setC.challenged,
+            challenger: matches[4].setC.challenger,
+          },
+        ],
       },
     ]);
   };
@@ -108,6 +197,20 @@ const Matches = () => {
           " " +
           matches[6].challenger.lastname,
         winner: matches[6].winner.firstname,
+        sets: [
+          {
+            challenged: matches[6].setA.challenged,
+            challenger: matches[6].setA.challenger,
+          },
+          {
+            challenged: matches[6].setB.challenged,
+            challenger: matches[6].setB.challenger,
+          },
+          {
+            challenged: matches[6].setC.challenged,
+            challenger: matches[6].setC.challenger,
+          },
+        ],
       },
     ]);
   };
@@ -186,13 +289,13 @@ const Matches = () => {
                 <p className="pl-[10px] pr-[30px]">{player.challenged}</p>
                 <div className=" flex ml-auto">
                   <span className="flex items-center justify-center w-[20px] h-[41px] bg-secondary">
-                    3
+                    {player.sets[0].challenged}
                   </span>
                   <span className="flex items-center justify-center w-[20px] h-[41px] bg-secondary">
-                    3
+                    {player.sets[1].challenged}
                   </span>
                   <span className="flex items-center justify-center w-[20px] h-[41px] bg-secondary">
-                    3
+                    {player.sets[2].challenged}
                   </span>
                 </div>
               </div>
@@ -209,13 +312,13 @@ const Matches = () => {
                 <p className="pl-[10px]">{player.challenger}</p>
                 <div className=" flex ml-auto">
                   <span className="flex items-center justify-center w-[20px] h-[41px] bg-secondary">
-                    3
+                    {player.sets[0].challenger}
                   </span>
                   <span className="flex items-center justify-center w-[20px] h-[41px] bg-secondary">
-                    3
+                    {player.sets[1].challenger}
                   </span>
                   <span className="flex items-center justify-center w-[20px] h-[41px] bg-secondary">
-                    3
+                    {player.sets[2].challenger}
                   </span>
                 </div>
               </div>
