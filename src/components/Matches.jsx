@@ -10,6 +10,7 @@ const Matches = () => {
     {
       challenged: "challenged",
       challenger: "challenger",
+      winner: "winner",
     },
   ]);
 
@@ -24,12 +25,14 @@ const Matches = () => {
             data[0].challenged.firstname + " " + data[0].challenged.lastname,
           challenger:
             data[0].challenger.firstname + " " + data[0].challenger.lastname,
+          winner: data[0].winner.firstname,
         },
         {
           challenged:
             data[1].challenged.firstname + " " + data[1].challenged.lastname,
           challenger:
             data[1].challenger.firstname + " " + data[1].challenger.lastname,
+          winner: data[1].winner.firstname,
         },
       ]);
     };
@@ -48,6 +51,7 @@ const Matches = () => {
           matches[0].challenger.firstname +
           " " +
           matches[0].challenger.lastname,
+        winner: matches[0].winner.firstname,
       },
       {
         challenged:
@@ -58,6 +62,7 @@ const Matches = () => {
           matches[1].challenger.firstname +
           " " +
           matches[1].challenger.lastname,
+        winner: matches[1].winner.firstname,
       },
     ]);
   };
@@ -74,6 +79,7 @@ const Matches = () => {
           matches[3].challenger.firstname +
           " " +
           matches[3].challenger.lastname,
+        winner: matches[3].winner.firstname,
       },
       {
         challenged:
@@ -84,6 +90,7 @@ const Matches = () => {
           matches[4].challenger.firstname +
           " " +
           matches[4].challenger.lastname,
+        winner: matches[4].winner.firstname,
       },
     ]);
   };
@@ -100,6 +107,7 @@ const Matches = () => {
           matches[6].challenger.firstname +
           " " +
           matches[6].challenger.lastname,
+        winner: matches[6].winner.firstname,
       },
     ]);
   };
@@ -125,7 +133,6 @@ const Matches = () => {
             className={
               round === 2 ? "px-[7px] bg-primary rounded-[3px]" : "px-[7px]"
             }
-            // className="px-[7px] rounded-[3px] hover:bg-primary"
           >
             2
           </button>
@@ -148,19 +155,53 @@ const Matches = () => {
           {players.map((player, index) => (
             <div
               key={index}
-              className="min-w-[232px] border-solid border-[1px] rounded-[5px]"
+              className="min-w-[300px] border-solid border-[1px] rounded-[5px] max-h-fit"
             >
               <div className="flex items-center border-b">
-                <span className="flex items-center justify-center w-[38px] h-[41px] bg-secondary">
+                <span
+                  className={
+                    player.challenged.includes(player.winner)
+                      ? "flex items-center justify-center w-[38px] h-[41px] bg-primary"
+                      : "flex items-center justify-center w-[38px] h-[41px] bg-secondary"
+                  }
+                >
                   1
                 </span>
-                <p className="pl-[10px]">{player.challenged}</p>
+                <p className="pl-[10px] pr-[30px]">{player.challenged}</p>
+                <div className=" flex ml-auto">
+                  <span className="flex items-center justify-center w-[20px] h-[41px] bg-secondary">
+                    3
+                  </span>
+                  <span className="flex items-center justify-center w-[20px] h-[41px] bg-secondary">
+                    3
+                  </span>
+                  <span className="flex items-center justify-center w-[20px] h-[41px] bg-secondary">
+                    3
+                  </span>
+                </div>
               </div>
               <div className="flex items-center">
-                <span className="flex items-center justify-center w-[38px] h-[41px] bg-primary">
+                <span
+                  className={
+                    player.challenger.includes(player.winner)
+                      ? "flex items-center justify-center w-[38px] h-[41px] bg-primary"
+                      : "flex items-center justify-center w-[38px] h-[41px] bg-secondary"
+                  }
+                >
                   2
                 </span>
                 <p className="pl-[10px]">{player.challenger}</p>
+                <div className=" flex ml-auto">
+                  <span className="flex items-center justify-center w-[20px] h-[41px] bg-secondary">
+                    3
+                  </span>
+                  <span className="flex items-center justify-center w-[20px] h-[41px] bg-secondary">
+                    3
+                  </span>
+                  <span className="flex items-center justify-center w-[20px] h-[41px] bg-secondary">
+                    3
+                  </span>
+                </div>
               </div>
             </div>
           ))}
