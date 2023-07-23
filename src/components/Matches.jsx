@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Chevronleft from "../icons/Chevronleft";
+import Chevronleft from "../icons/ChevronLeft";
 import ChevronRight from "../icons/ChevronRight";
 import Circle from "../icons/Circle";
 
