@@ -112,12 +112,28 @@ const Matches = () => {
     ]);
   };
 
+  const incrementRound = () => {
+    if (round === 1) {
+      handleRoundTwo();
+    } else if (round === 2) {
+      handleRoundThree();
+    }
+  };
+
+  const decrementRound = () => {
+    if (round === 3) {
+      handleRoundTwo();
+    } else if (round === 2) {
+      handleRoundOne();
+    }
+  };
+
   return (
     <div className="bg-white min-h-[500px]">
       <div className="flex justify-between border-b items-center">
         <p className="pl-[20px] mt-[22px] mb-[12px]">Round {round}</p>
         <div className="flex gap-[24px] pr-[20px] h-5 items-center">
-          <button className="px-[7px]">
+          <button onClick={decrementRound} className="px-[7px]">
             <Chevronleft />
           </button>
           <button
@@ -144,7 +160,7 @@ const Matches = () => {
           >
             3
           </button>
-          <button className="px-[7px]">
+          <button onClick={incrementRound} className="px-[7px]">
             <ChevronRight />
           </button>
         </div>
